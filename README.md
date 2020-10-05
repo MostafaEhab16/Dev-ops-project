@@ -22,70 +22,41 @@
 - Used eksctl to create the Kubernetes cluster.
 - Used the Jenkins pipline to deploy my Kubernetes cluster using Cloudformation.
 
-
-## Running the project Locally 
-
-#### **1-Docker Configuration**
--  Dockerfile is complete
--  to run the project using docker use this command `run_docker.sh` 
--  Docker image is uploaded to docker via `upload_docker.sh`
--  Docker image is deleted via   `delete_docker.sh`
-
-
-#### **2-Kubernetes Configuration**
-
--  to run the project using kubernetes use this command`run_kubernetes.sh`
--  to delete the  this Kubernetes cluster use this  command`run_kubernetes.sh`
-
-
-## Creating AWS (Amazon Web Services) account
-For running Kuberntes on Amazon EKS, and running Jenkins pipeline on Amazon EC2 instance, you will need to create a AWS account. Follow this link to create your own AWS account: [Sign-up for Amazon Web Services](https://portal.aws.amazon.com/billing/signup#/start)
-
-Then create Kubernetes cluster using:
+## create Kubernetes cluster using AWS 
 
 ```shell
-$ eksctl create cluster --name devops-capstone-cluster --node-type t2.micro --region us-east-2
+$ eksctl create cluster --name Mostafa_Devops --node-type t2.micro --region us-east-2
 
-$ aws eks update-kubeconfig --name devops-capstone-cluster
+$ aws eks update-kubeconfig --name Mostafa_Devops
 
-$ kubectl config use-context arn:aws:eks:us-east-2:653404899093:cluster/devops-capstone-app
+$ kubectl config use-context arn:aws:eks:us-east-2:653404899093:cluster/Mostafa_Devops
 
 $ kubectl apply -f deploy.yml
 ```
 
+## Creating Docker and Kubernetes locally 
+
+#### **1-Docker Configuration**
+-  Run the project using docker use this command `run_docker.sh` 
+-  Upload Docker image is to docker via `upload_docker.sh`
+-  Delete Docker image is via  `delete_docker.sh`
+
+
+#### **2-Kubernetes Configuration**
+
+-  Run the project using kubernetes use this command`run_kubernetes.sh`
+
+
 ## Requirements for running Jenkins Pipeline
-For running Jenkins Pipeline, you will need to install Jenkins on your Amazon EC2 instance. 
+## AWS steps
+1)Log in to the AWS management console, as a Root user. Find and select the IAM (Identify and Access Management) service.
 
-1. (Optional) Create your own EC2 instance, by login into Amazon AWS console. Here's a series of steps required to set up your own EC2 instance.
-Use a Ubuntu 18 with T2.micro since this is included in Free Tier from Amazon.
-Once launched, create a security group for the vm. In the left sidebar, under Network and Security, select "Security Groups." Under name, use: 'jenkins', description: "basic Jenkins security group," VPC should have the default one used. Click Add Rule: Custom TCP Rule, Protocol: TCP, Port Range 8080, Source 0.0.0.0/0 Then add the SSH rule: Protocol: SSH, Port range: 22, From source, use the dropdown and select "My IP."
+2) Click on "Group" menu item from the left sidebar. Create a new group and name it "jenkins", and attach the following policies:
+  AmazonEC2FullAccess
+  AmazonVPCFullAccess
+  AmazonS3FullAccess.
 
-2. Now connect to your EC2 istance by following steps, written on following link: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.html
-
-3. Now once connected, we've to install Jenkins on your EC2 instance (or on your local machine if you want to deploy your Jenkins pipeline on your local machine). Here are commands for installing Jenkins on Ubuntu EC2 instance: 
-    ```
-    $ apt update
-    $ apt upgrade
-    $ apt install default-jdk
-    $ wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
-    $ sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-    $ sudo apt update
-    $ sudo apt install jenkins
-    $ sudo systemctl status jenkins
-    ```
-    After running the above commands, you should status of Jenkins instance, running on your EC2 instance or local machine.
-
-4. Jenkins by defualt runs on port 8080. So, Visit Jenkins on its default port, 8080, with your server IP address or domain name included like this: http://your_server_ip_or_domain:8080
-
-5. Now run the following command, and copy the password generated. Put this password in Jenkins login screen.
-```
-$ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-```
-
-6. The next screen gives you the choice of installing recommended plugins, or selecting specific plugins - choose the Install suggested plugins option, which quickly begins the installation process. 
-
-7. When installation is complete, you are prompted to set up the first admin user. Create the admin user and make note of both the user and password to use in the future.
-
+3) Create an IAM user
 
 
 
