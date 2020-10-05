@@ -9,7 +9,7 @@
 1)	Working in AWS
 2)	Using Jenkins to implement Continuous Integration and Continuous Deployment 
 3)	Building pipelines 
-4)	Working with Ansible and CloudFormation to deployclusters 
+4)	Working with CloudFormation to deployclusters 
 5)	Building Kubernetes clusters 
 6)	Building Docker containers in pipelines
 
