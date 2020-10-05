@@ -16,7 +16,7 @@ kubectl get pods
 
 sleep 15s
 #Get application pod name 
-POD=$(kubectl get pods | awk '{print$1}' | grep 'mostafa-hello')
+POD=$(kubectl get pods |awk '{print$1}' | grep 'mostafa-hello')
 
 #Print pod name
 echo $POD 
