@@ -34,8 +34,8 @@ pipeline {
     stage('Deploy Container') {
       steps {
         withAWS(region:'us-east-2',credentials:'aws-creds') {
-          sh 'aws eks update-kubeconfig --name mostafa-hello-app'
-          sh 'kubectl config use-context arn:aws:eks:us-east-2:205696078143:cluster/mostafa-hello-app'
+          sh 'aws eks update-kubeconfig --name Mostafa_Devops'
+          sh 'kubectl config use-context arn:aws:eks:us-east-2:205696078143:cluster/Mostafa_Devops'
           sh 'kubectl apply -f deploy.yml'
         }
       }
