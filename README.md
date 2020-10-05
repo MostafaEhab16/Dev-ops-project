@@ -48,7 +48,7 @@ $ kubectl apply -f deploy.yml
 
 
 ## Steps for running Jenkins Pipeline
-## A.AWS steps
+## A. AWS steps
 1. Log in to the AWS management console, as a Root user. Find and select the IAM (Identify and Access Management) service.
 
 2. click on "Group" menu item from the left sidebar. Create a new group and name it "jenkins", and attach the following policies:
@@ -66,11 +66,15 @@ $ kubectl apply -f deploy.yml
 
 6. Once launched, create a security group for the vm. In the left sidebar, under Network and Security, select "Security Groups." Under name, use: 'jenkins', description: "basic Jenkins security group," VPC should have the default one used. Click Add Rule: Custom TCP Rule, Protocol: TCP, Port Range 8080, Source 0.0.0.0/0 Then add the SSH rule: Protocol: SSH, Port range: 22, From source, use the dropdown and select "My IP."
 
-
-      
-      
-
-
+### Setup Jenkins
+1.	Visit Jenkins on its default port, 8080, with your server IP address or domain name included like this: http://your_server_ip_or_domain:8080.
+2.	Please provide a screenshot that includes the unique AWS url (ensure the FQDN is used, not the IP). Name this "screenshot-03."
+3.	Next you will see the "Unlock Jenkins" screen, displaying the location of the initial password. In the terminal, use cat to show the password:
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+4.	Copy and paste the 32-character alphanumeric password from the terminal into the Admin password field, then Continue.
+5.	The next screen gives you the choice of installing recommended plugins, or selecting specific plugins - choose the Install suggested plugins option, which quickly begins the installation process.
+6.	When installation is complete, you are prompted to set up the first admin user. Create the admin user and make note of both the user and password to use in the future.
+7.	You next see an Instance Configuration page, asking you to confirm the preferred URL for your Jenkins instance. Confirm the address, click save and finish.
 
 
 ### Install BlueOcean on Jenkins
