@@ -1,8 +1,6 @@
 # Udacity Devops-Capstone-Project
 
-## Weather-Journal App Project
-this project focuses on creating an asynchronous web app that uses Web API and user data to dynamically update the UI
-The project uses Node.JS and Express.
+## Hello- World CI/CD deployment  
 
 
 ## Project Overview  
