@@ -26,16 +26,16 @@ pipeline {
       steps {
         withDockerRegistry([url: "", credentialsId: "dockerhub_id"]) {
           sh 'docker login'  
-          sh 'docker tag  mostafa-hello mostafa16/mostafa-hello'  
-          sh 'docker push mostafa16/mostafa-hello'  
+          sh 'docker tag  mostafa-hello mostafaehab16/mostafa-hello'  
+          sh 'docker push mostafaehab16/mostafa-hello'  
         }
       }
     }
     stage('Deploy Container') {
       steps {
         withAWS(region:'us-east-2',credentials:'user-aws') {
-          sh 'aws eks update-kubeconfig --name devops-capstone-cluster'
-          sh 'kubectl config use-context arn:aws:eks:us-east-2:653404899093:cluster/devops-capstone-app'
+          sh 'aws eks update-kubeconfig --name mostafa-hello-cluster'
+          sh 'kubectl config use-context arn:aws:eks:eu-west-1:425140081452:cluster/mostafa-hello-app'
           sh 'kubectl apply -f deploy.yml'
         }
       }
