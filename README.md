@@ -47,16 +47,22 @@ $ kubectl apply -f deploy.yml
 -  Run the project using kubernetes use this command`run_kubernetes.sh`
 
 
-## Requirements for running Jenkins Pipeline
-## AWS steps
-1)Log in to the AWS management console, as a Root user. Find and select the IAM (Identify and Access Management) service.
+## Steps for running Jenkins Pipeline
+## A.AWS steps
+ 1.Log in to the AWS management console, as a Root user. Find and select the IAM (Identify and Access Management) service.
 
-2) Click on "Group" menu item from the left sidebar. Create a new group and name it "jenkins", and attach the following policies:
+2.Click on "Group" menu item from the left sidebar. Create a new group and name it "jenkins", and attach the following policies:
   AmazonEC2FullAccess
   AmazonVPCFullAccess
   AmazonS3FullAccess.
 
-3) Create an IAM user
+3.Create an IAM user
+
+4. Create a new key pair for access to your instance(s). Choose EC2 as the service after logging in. Select "Key Pairs" from the sidebar on the left, from the "Network and Security" section. Enter the "pipeline" name when prompted. Save the ".pem" file. If you will use an SSH client on a Mac or Linux computer to connect to your Linux instance, use the following command to set the permissions of your private key file so that only you can read it:
+
+      chmod 400 your_user_name-key-pair-region_name.pem
+      
+      
 
 
 
