@@ -26,8 +26,8 @@ pipeline {
       steps {
         withDockerRegistry([url: "", credentialsId: "docker-creds"]) {
           sh 'docker login'  
-          sh 'docker tag  mostafa-hello mostafaehab16/mostafa-hello'  
-          sh 'docker push mostafaehab16/mostafa-hello'  
+          sh 'docker tag  mostafa-hello mostafaehab16/Mostafa_Devops'  
+          sh 'docker push mostafaehab16/Mostafa_Devops'  
         }
       }
     }
