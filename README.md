@@ -66,7 +66,7 @@ $ kubectl apply -f deploy.yml
 
 6. Once launched, create a security group for the vm. In the left sidebar, under Network and Security, select "Security Groups." Under name, use: 'jenkins', description: "basic Jenkins security group," VPC should have the default one used. Click Add Rule: Custom TCP Rule, Protocol: TCP, Port Range 8080, Source 0.0.0.0/0 Then add the SSH rule: Protocol: SSH, Port range: 22, From source, use the dropdown and select "My IP."
 
-### Setup Jenkins
+### B. Setup Jenkins
 1.	Visit Jenkins on its default port, 8080, with your server IP address or domain name included like this: http://your_server_ip_or_domain:8080.
 2.	Next you will see the "Unlock Jenkins" screen, displaying the location of the initial password. In the terminal, use cat to show the password:
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
@@ -74,7 +74,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 4.	When installation is complete, you are prompted to set up the first admin user. Create the admin user and make note of both the user and password to use in the future.
 
 
-### Install BlueOcean on Jenkins
+### C. Install BlueOcean on Jenkins
 1. "Blue Ocean" and other required plugins need to be installed. Logged in as an admin, go to the top left, click 'Jenkins', then 'manage Jenkins', and select 'Manage Plugins'.
 
 2. Use the "Available" tab, filter by "Blue Ocean," select the first option ("BlueOcean aggregator") and install without a restart.
