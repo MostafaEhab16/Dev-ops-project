@@ -68,13 +68,10 @@ $ kubectl apply -f deploy.yml
 
 ### Setup Jenkins
 1.	Visit Jenkins on its default port, 8080, with your server IP address or domain name included like this: http://your_server_ip_or_domain:8080.
-2.	Please provide a screenshot that includes the unique AWS url (ensure the FQDN is used, not the IP). Name this "screenshot-03."
-3.	Next you will see the "Unlock Jenkins" screen, displaying the location of the initial password. In the terminal, use cat to show the password:
+2.	Next you will see the "Unlock Jenkins" screen, displaying the location of the initial password. In the terminal, use cat to show the password:
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-4.	Copy and paste the 32-character alphanumeric password from the terminal into the Admin password field, then Continue.
-5.	The next screen gives you the choice of installing recommended plugins, or selecting specific plugins - choose the Install suggested plugins option, which quickly begins the installation process.
-6.	When installation is complete, you are prompted to set up the first admin user. Create the admin user and make note of both the user and password to use in the future.
-7.	You next see an Instance Configuration page, asking you to confirm the preferred URL for your Jenkins instance. Confirm the address, click save and finish.
+3.	Copy and paste the 32-character alphanumeric password from the terminal into the Admin password field, then Continue.
+4.	When installation is complete, you are prompted to set up the first admin user. Create the admin user and make note of both the user and password to use in the future.
 
 
 ### Install BlueOcean on Jenkins
@@ -90,8 +87,4 @@ sudo systemctl restart jenkins
 ```
 5. Verify everything is working for Blue Ocean by logging in. An "Open Blue Ocean" link should show up in the sidebar. Click it, and it will take you to the "Blue Ocean" screen, where we will have to add a project.
 
-## Additional Steps to compelete the depolyment 
-1. install tidy linter using this command `sudo apt-get install -y tidy`
-2. install Amazon Web Services SDK and Docker Pipelines plugin
-3. Add AWS credentials to jenkins which can be found in the following link : https://www.jenkins.io/doc/book/using/using-credentials/
-4. Add docker credentials from to push the image to dockerhub using the following link : https://appfleet.com/blog/building-docker-images-to-docker-hub-using-jenkins-pipelines/
+
