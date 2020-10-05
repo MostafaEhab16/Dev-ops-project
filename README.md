@@ -15,10 +15,10 @@
 
 
 ## Steps of Project 
-- Developed a CI/CD pipeline for microservices applications with rolling deployment.
-- Developed Continuous Integration steps such as linting and.
-- Developed Contiguous Deployment like pushing the built Docker containers to the Docker repository.
-- Deployed these Docker containers to a  Kubernetes cluster. 
+- Developing a CI/CD pipeline for microservices applications with rolling deployment.
+- Developing Continuous Integration steps such as linting.
+- Developing Contiguous Deployment like pushing the built Docker containers to the Docker repository.
+- Deploying these Docker containers to a  Kubernetes cluster. 
 - Used eksctl to create the Kubernetes cluster.
 - Used the Jenkins pipline to deploy my Kubernetes cluster using Cloudformation.
 
